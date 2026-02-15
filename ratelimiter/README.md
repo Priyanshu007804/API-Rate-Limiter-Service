@@ -55,7 +55,7 @@ Service is running!
 
  Rate Limit Check Endpoint
 **GET**
-http://localhost:9090/api/check?user=priyanshu�
+http://localhost:9090/api/check?user=priyanshu
 
 
 Success Response (200):

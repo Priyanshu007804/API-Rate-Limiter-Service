@@ -38,10 +38,20 @@ public class TokenBucket {
     }
 
     public long getResetTimeSeconds(){
+        if(tokens >= capacity) {
+            return 0; 
+        }
+        double missingTokens = capacity - tokens;
+        return (long) Math.ceil(missingTokens / refillRatePerSecond);
+        }
+    
+        
+        public long getNextRefillTimeMillis() {
         double missingTokens = capacity - tokens;
         if (missingTokens <= 0) {
-            return 0;
+            return 0; 
         }
-        return (long) Math.ceil(missingTokens / refillRatePerSecond);
-    }
+        long timeToRefill = (long) Math.ceil(missingTokens / refillRatePerSecond * 1000);
+        return System.currentTimeMillis() + timeToRefill;
+        }
 }

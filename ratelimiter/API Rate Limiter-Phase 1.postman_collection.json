@@ -1,0 +1,82 @@
+{
+  "info": {
+    "_postman_id": "31949ec8-ef98-4ddc-aa70-80ff5429b56e",
+    "name": "API Rate Limiter-Phase 1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47630426",
+    "_collection_link": "https://go.postman.co/collection/47630426-31949ec8-ef98-4ddc-aa70-80ff5429b56e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Check Rate Limit",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/check?user=priyanshu",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "check"
+          ],
+          "query": [
+            {
+              "key": "user",
+              "value": "priyanshu"
+            }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Reset Rate Limit",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/reset?user=priyanshu",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "reset"
+          ],
+          "query": [
+            {
+              "key": "user",
+              "value": "priyanshu"
+            }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

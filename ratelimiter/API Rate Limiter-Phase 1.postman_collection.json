@@ -1,0 +1,246 @@
+{
+  "info": {
+    "_postman_id": "31949ec8-ef98-4ddc-aa70-80ff5429b56e",
+    "name": "API Rate Limiter-Phase 1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "47630426",
+    "_collection_link": "https://go.postman.co/collection/47630426-31949ec8-ef98-4ddc-aa70-80ff5429b56e?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/health",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "health"
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Health Check",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9090/health",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9090",
+              "path": [
+                "health"
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain;charset=UTF-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "19"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 15 Feb 2026 08:37:15 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "Service is running!"
+        }
+      ]
+    },
+    {
+      "name": "Check Rate Limit",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/check?user=priyanshu",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "check"
+          ],
+          "query": [
+            {
+              "key": "user",
+              "value": "priyanshu"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Check Rate Limit",
+          "originalRequest": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9090/api/check?user=priyanshu",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9090",
+              "path": [
+                "api",
+                "check"
+              ],
+              "query": [
+                {
+                  "key": "user",
+                  "value": "priyanshu"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "X-RateLimit-Limit",
+              "value": "10"
+            },
+            {
+              "key": "X-RateLimit-Remaining",
+              "value": "9"
+            },
+            {
+              "key": "X-RateLimit-Reset",
+              "value": "1771144656137"
+            },
+            {
+              "key": "Content-Type",
+              "value": "text/plain;charset=UTF-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "15"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 15 Feb 2026 08:37:31 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "Request Allowed"
+        }
+      ]
+    },
+    {
+      "name": "Reset Rate Limit",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:9090/api/reset?user=priyanshu",
+          "protocol": "http",
+          "host": [
+            "localhost"
+          ],
+          "port": "9090",
+          "path": [
+            "api",
+            "reset"
+          ],
+          "query": [
+            {
+              "key": "user",
+              "value": "priyanshu"
+            }
+          ]
+        }
+      },
+      "response": [
+        {
+          "name": "Reset Rate Limit",
+          "originalRequest": {
+            "method": "POST",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:9090/api/reset?user=priyanshu",
+              "protocol": "http",
+              "host": [
+                "localhost"
+              ],
+              "port": "9090",
+              "path": [
+                "api",
+                "reset"
+              ],
+              "query": [
+                {
+                  "key": "user",
+                  "value": "priyanshu"
+                }
+              ]
+            }
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": null,
+          "header": [
+            {
+              "key": "Content-Type",
+              "value": "text/plain;charset=UTF-8"
+            },
+            {
+              "key": "Content-Length",
+              "value": "41"
+            },
+            {
+              "key": "Date",
+              "value": "Sun, 15 Feb 2026 08:37:41 GMT"
+            },
+            {
+              "key": "Keep-Alive",
+              "value": "timeout=60"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            }
+          ],
+          "cookie": [],
+          "body": "Rate limit reset done for user: priyanshu"
+        }
+      ]
+    }
+  ]
+}
